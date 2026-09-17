@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Management Dashboard</title>
+  <link rel="stylesheet" href="./Finaltask.css"/>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header with Date & Time -->
+    <header class="header">
+      <h1>EMPLOYEE MANAGEMENT SYSTEM</h1>
+      <div id="datetime-display" class="datetime">Loading Date & Time...</div>
+    </header>
+
+    <!-- Status Message (Loading / Success / Error) -->
+    <div id="status-message" class="status-message info">Loading employees...</div>
+
+    <!-- Analytics Dashboard (Salary & Highest Paid) -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <h3>Total Employees</h3>
+        <p id="total-count">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Salary</h3>
+        <p id="total-salary">₹0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Average Salary</h3>
+        <p id="avg-salary">₹0</p>
+      </div>
+      <div class="stat-card highlight">
+        <h3>🏆 Highest Paid Employee</h3>
+        <p id="highest-paid-name">N/A</p>
+        <span id="highest-paid-salary">₹0</span>
+      </div>
+    </section>
+
+    <!-- Search, Filters and Sorting Controls -->
+    <section class="controls-section">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search Employee by Name..." />
+        <button id="search-btn" class="btn btn-primary">Search</button>
+      </div>
+
+      <div class="filter-buttons">
+        <button class="btn btn-filter active" data-dept="All">All Employees</button>
+        <button class="btn btn-filter" data-dept="IT">IT</button>
+        <button class="btn btn-filter" data-dept="HR">HR</button>
+        <button class="btn btn-filter" data-dept="Finance">Finance</button>
+        <button class="btn btn-filter" data-dept="Marketing">Marketing</button>
+      </div>
+
+      <div class="sort-controls">
+        <label for="sort-select">Sort By: </label>
+        <select id="sort-select">
+          <option value="default">Default</option>
+          <option value="name-asc">Name (A-Z)</option>
+          <option value="name-desc">Name (Z-A)</option>
+          <option value="age-asc">Age (Low to High)</option>
+          <option value="age-desc">Age (High to Low)</option>
+          <option value="salary-asc">Salary (Low to High)</option>
+          <option value="salary-desc">Salary (High to Low)</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Employees Display Grid -->
+    <main>
+      <div id="employee-grid" class="employee-grid"></div>
+    </main>
+
+    <!-- Add Employee Form Section -->
+    <section class="form-section">
+      <h2>ADD EMPLOYEE</h2>
+      <div id="form-error" class="error-banner"></div>
+      
+      <form id="add-employee-form" class="employee-form" novalidate>
+        <div class="form-group">
+          <label for="emp-name">First Name:</label>
+          <input type="text" id="emp-name" placeholder="Enter name" />
+        </div>
+
+        <div class="form-group">
+          <label for="emp-age">Age:</label>
+          <input type="number" id="emp-age" placeholder="Must be > 18" />
+        </div>
+
+        <div class="form-group">
+          <label for="emp-email">Email:</label>
+          <input type="email" id="emp-email" placeholder="example@domain.com" />
+        </div>
+
+        <div class="form-group">
+
+          <label for="emp-dept">Department:</label>
+          <select id="emp-dept">
+            <option value="">-- Select Department --</option>
+            <option value="IT">IT</option>
+            <option value="HR">HR</option>
+            <option value="Finance">Finance</option>
+            <option value="Marketing">Marketing</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="emp-phone">Phone Number:</label>
+          <input type="text" id="emp-phone" placeholder="Enter 10-digit phone number" />
+        </div>
+
+        <div class="form-group">
+          <label for="emp-salary">Salary (₹):</label>
+          <input type="number" id="emp-salary" placeholder="Enter salary" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Add Employee</button>
+        <button type="button" id="clear" class="clear-btn">Clear</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="./Finaltask.js"></script>
+</body>
+</html>
